@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Tidak Ditemukan | Hagoi Cloud Gaming</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        hagoi: {
+                            primary: '#6366f1',
+                            dark: '#1e1e2d',
+                            light: '#f8f9fa',
+                            accent: '#f59e0b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e1e2d 0%, #6366f1 100%);
+        }
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+        }
+        .cloud-icon {
+            filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.5));
+        }
+        .pixel-corners {
+            clip-path: polygon(
+                0% 6px, 6px 6px, 6px 0%, calc(100% - 6px) 0%, 
+                calc(100% - 6px) 6px, 100% 6px, 100% calc(100% - 6px), 
+                calc(100% - 6px) calc(100% - 6px), calc(100% - 6px) 100%, 
+                6px 100%, 6px calc(100% - 6px), 0% calc(100% - 6px)
+            );
+        }
+        @media (max-width: 640px) {
+            .pixel-corners {
+                clip-path: polygon(
+                    0% 4px, 4px 4px, 4px 0%, calc(100% - 4px) 0%, 
+                    calc(100% - 4px) 4px, 100% 4px, 100% calc(100% - 4px), 
+                    calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%, 
+                    4px 100%, 4px calc(100% - 4px), 0% calc(100% - 4px)
+                );
+            }
+        }
+    </style>
+</head>
+<body class="font-poppins bg-hagoi-dark text-hagoi-light min-h-screen flex flex-col items-center justify-center p-4 overflow-hidden">
+    <!-- Floating Cloud Background Elements (Mobile Adjusted) -->
+    <div class="absolute top-10 left-4 opacity-20 cloud-icon sm:top-20 sm:left-10">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 sm:h-32 sm:w-32 text-hagoi-primary" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18 10a6 6 0 0 0-12 0 5 5 0 0 0 0 10h12a5 5 0 0 0 0-10z"/>
+        </svg>
+    </div>
+    <div class="absolute bottom-10 right-4 opacity-20 cloud-icon sm:bottom-20 sm:right-10">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 sm:h-24 sm:w-24 text-hagoi-primary" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18 10a6 6 0 0 0-12 0 5 5 0 0 0 0 10h12a5 5 0 0 0 0-10z"/>
+        </svg>
+    </div>
+
+    <!-- Main Content -->
+    <div class="text-center w-full max-w-2xl px-4 relative z-10">
+        <!-- Cloud Gaming Icon with 404 (Mobile Adjusted) -->
+        <div class="mx-auto mb-6 w-28 h-28 sm:w-40 sm:h-40 relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-hagoi-primary to-indigo-800 rounded-full opacity-20"></div>
+            <div class="relative flex items-center justify-center h-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 sm:h-24 sm:w-24 text-hagoi-accent cloud-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                </svg>
+                <div class="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-hagoi-primary text-white rounded-full w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-xl font-bold border-2 sm:border-4 border-hagoi-dark">
+                    4
+                </div>
+                <div class="absolute -bottom-1 -left-1 sm:-bottom-2 sm:-left-2 bg-hagoi-primary text-white rounded-full w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-xl font-bold border-2 sm:border-4 border-hagoi-dark">
+                    4
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Message (Mobile Adjusted) -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-hagoi-primary to-hagoi-accent bg-clip-text text-transparent">
+            GAME OVER
+        </h1>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Level Tidak Ditemukan</h2>
+        <p class="text-base sm:text-xl text-gray-400 mb-6 sm:mb-8 max-w-lg mx-auto px-2 sm:px-0">
+            Server tidak dapat menemukan halaman yang Anda minta. Mungkin telah dihapus atau tidak pernah ada.
+        </p>
+
+        <!-- Action Buttons with Gamepad Icons (Mobile Adjusted) -->
+        <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 w-full">
+            <a href="/" class="bg-hagoi-primary hover:bg-indigo-700 text-white px-6 py-2 sm:px-8 sm:py-3 rounded-full font-semibold text-center transition btn-hover flex items-center justify-center space-x-2 text-sm sm:text-base">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                <span>Kembali ke Lobby</span>
+            </a>
+        </div>
+
+        <!-- Game Console Graphic (Mobile Adjusted) -->
+        <div class="mt-12 sm:mt-16 mx-auto w-48 h-24 sm:w-64 sm:h-32 relative">
+            <div class="absolute inset-0 bg-gray-800 pixel-corners rounded-lg"></div>
+            <div class="absolute top-2 sm:top-4 left-1/2 transform -translate-x-1/2 w-36 sm:w-48 h-4 sm:h-6 bg-gray-900 rounded-full"></div>
+            <div class="absolute top-8 sm:top-12 left-1/2 transform -translate-x-1/2 w-24 sm:w-32 h-12 sm:h-16 bg-gray-700 pixel-corners rounded flex items-center justify-center">
+                <span class="text-xs text-gray-400">ERROR 404</span>
+            </div>
+            <div class="absolute bottom-2 sm:bottom-4 left-4 sm:left-6 w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-hagoi-accent"></div>
+            <div class="absolute bottom-2 sm:bottom-4 right-4 sm:right-6 w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-hagoi-primary"></div>
+        </div>
+    </div>
+
+</body>
+</html>
