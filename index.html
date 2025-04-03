@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hagoi云 - 安卓云游戏平台</title>
+    <title>Hagoi Cloud - Cloud Gaming untuk Android</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
@@ -59,59 +59,62 @@
     </style>
 </head>
 <body class="font-poppins bg-hagoi-dark text-hagoi-light">
-    <!-- 导航栏 -->
+    <!-- Navigation -->
     <nav class="container mx-auto px-6 py-4 sticky top-0 bg-hagoi-dark z-50">
         <div class="flex items-center justify-between">
             <div class="flex items-center space-x-2">
                 <img src="gamepad-svgrepo-com (1).png" class="h-10 w-10">
-                <span class="text-2xl font-bold text-white">Hagoi云</span>
+                <!-- <svg xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                </svg> -->
+                <span class="text-2xl font-bold text-white">Hagoi Cloud</span>
             </div>
             <div class="hidden md:flex items-center space-x-10">
-                <a href="#home" class="text-white hover:text-hagoi-accent transition">首页</a>
-                <a href="#servers" class="text-white hover:text-hagoi-accent transition">服务器</a>
-                <a href="#pricing" class="text-white hover:text-hagoi-accent transition">价格</a>
-                <a href="#faq" class="text-white hover:text-hagoi-accent transition">常见问题</a>
-                <a href="#download" class="text-white hover:text-hagoi-accent transition">下载</a>
+                <a href="#home" class="text-white hover:text-hagoi-accent transition">Beranda</a>
+                <a href="#servers" class="text-white hover:text-hagoi-accent transition">Server Kami</a>
+                <a href="#pricing" class="text-white hover:text-hagoi-accent transition">Harga</a>
+                <a href="#faq" class="text-white hover:text-hagoi-accent transition">FAQ</a>
+                <a href="#download" class="text-white hover:text-hagoi-accent transition">Download</a>
             </div>
             <a href="#download" class="bg-hagoi-primary hover:bg-indigo-700 text-white px-6 py-2 rounded-full font-medium transition">
-                下载
+                Download
             </a>
         </div>
     </nav>
 
-    <!-- 英雄区 -->
+    <!-- Hero Section -->
     <section id="home" class="hero-gradient">
         <div class="container mx-auto px-6 py-20 md:py-32">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0">
                     <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
-                        安卓设备上的<span class="text-hagoi-accent">云游戏</span>
+                        Cloud Gaming <span class="text-hagoi-accent">untuk Android</span>
                     </h1>
                     <p class="text-xl text-gray-300 mb-8">
-                        在任何安卓设备上畅玩高端游戏。无需下载，立即开玩！
+                        Mainkan game high-end di perangkat Android apa pun. Tanpa download, langsung main!
                     </p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                         <a href="#download" class="bg-hagoi-accent hover:bg-amber-600 text-white px-8 py-3 rounded-full font-semibold text-center transition">
-                            立即下载
+                            Download Sekarang
                         </a>
                         <a href="#pricing" class="border-2 border-white hover:bg-white hover:text-hagoi-dark text-white px-8 py-3 rounded-full font-semibold text-center transition">
-                            查看价格
+                            Lihat Harga
                         </a>
                     </div>
                 </div>
                 <div class="md:w-1/2 flex justify-center">
-                    <img src="pngimg.com - gta_PNG42.png" alt="Hagoi云游戏">
+                    <img src="pngimg.com - gta_PNG42.png" alt="Hagoi Cloud Gaming">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 特色区 -->
+    <!-- Features Section -->
     <section class="container mx-auto px-6 py-20">
         <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Hagoi云的优势</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Keunggulan Hagoi Cloud</h2>
             <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-                为安卓设备提供最佳的云游戏体验
+                Pengalaman cloud gaming terbaik untuk perangkat Android
             </p>
         </div>
         
@@ -122,8 +125,8 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold mb-3">即时开玩</h3>
-                <p class="text-gray-400">无需下载或安装，几秒钟内即可开始游戏。</p>
+                <h3 class="text-xl font-bold mb-3">Main Instan</h3>
+                <p class="text-gray-400">Mulai main dalam hitungan detik tanpa perlu download atau instal.</p>
             </div>
             
             <div class="bg-gray-800 p-8 rounded-xl">
@@ -132,8 +135,8 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold mb-3">高性能</h3>
-                <p class="text-gray-400">云端服务器支持，在所有安卓设备上流畅游戏。</p>
+                <h3 class="text-xl font-bold mb-3">Kinerja Tinggi</h3>
+                <p class="text-gray-400">Didukung server cloud untuk gameplay mulus di semua perangkat Android.</p>
             </div>
             
             <div class="bg-gray-800 p-8 rounded-xl">
@@ -142,248 +145,248 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold mb-3">云存档</h3>
-                <p class="text-gray-400">您的游戏进度始终安全保存在云端。</p>
+                <h3 class="text-xl font-bold mb-3">Save Game</h3>
+                <p class="text-gray-400">Progress game Anda selalu aman dan tersimpan di cloud.</p>
             </div>
         </div>
     </section>
 
-    <!-- 服务器位置区 -->
-    <section id="servers" class="container mx-auto px-6 py-20">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">全球服务器网络</h2>
-            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-                战略部署的高性能服务器，提供无延迟游戏体验
-            </p>
-        </div>
-        
-        <div class="bg-gray-800 rounded-xl p-6">
-            <div id="serverMap"></div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                <div class="bg-gray-700 p-6 rounded-lg hover:bg-gray-600 transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="relative mr-3">
-                            <span class="server-marker"></span>
-                            <span class="absolute -top-1 -right-1 flex h-3 w-3">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                            </span>
-                        </div>
-                        <h3 class="text-xl font-bold">新加坡</h3>
+    <!-- Server Locations Section -->
+<section id="servers" class="container mx-auto px-6 py-20">
+    <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Jaringan Server Global</h2>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+            Server berkinerja tinggi di lokasi strategis untuk pengalaman gaming tanpa lag
+        </p>
+    </div>
+    
+    <div class="bg-gray-800 rounded-xl p-6">
+        <div id="serverMap"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+            <div class="bg-gray-700 p-6 rounded-lg hover:bg-gray-600 transition duration-300">
+                <div class="flex items-center mb-4">
+                    <div class="relative mr-3">
+                        <span class="server-marker"></span>
+                        <span class="absolute -top-1 -right-1 flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                        </span>
                     </div>
-                    <p class="text-gray-300">
-                        新加坡高级服务器，10Gbps连接，为整个东南亚地区提供低延迟服务。配备最新处理器和专用游戏GPU。
-                    </p>
+                    <h3 class="text-xl font-bold">Singapore</h3>
                 </div>
-                <div class="bg-gray-700 p-6 rounded-lg hover:bg-gray-600 transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="relative mr-3">
-                            <span class="server-marker"></span>
-                            <span class="absolute -top-1 -right-1 flex h-3 w-3">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                            </span>
-                        </div>
-                        <h3 class="text-xl font-bold">帕朗卡拉亚</h3>
+                <p class="text-gray-300">
+                    Server premium di Singapura dengan koneksi 10Gbps, memberikan latensi rendah untuk seluruh Asia Tenggara. Didukung oleh prosesor terbaru dan GPU khusus gaming.
+                </p>
+            </div>
+            <div class="bg-gray-700 p-6 rounded-lg hover:bg-gray-600 transition duration-300">
+                <div class="flex items-center mb-4">
+                    <div class="relative mr-3">
+                        <span class="server-marker"></span>
+                        <span class="absolute -top-1 -right-1 flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                        </span>
                     </div>
-                    <p class="text-gray-300">
-                        位于加里曼丹的本地服务器，为印度尼西亚中部和东部用户提供服务。采用最新游戏流技术优化以减少延迟。
-                    </p>
+                    <h3 class="text-xl font-bold">Palangkaraya</h3>
                 </div>
+                <p class="text-gray-300">
+                    Server lokal di Kalimantan untuk pengguna di Indonesia bagian tengah dan timur. Optimalkan untuk mengurangi latensi dengan teknologi streaming game terbaru.
+                </p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- 价格区 -->
+    <!-- Pricing Section -->
     <section id="pricing" class="bg-gray-900 py-20">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">价格套餐</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Paket Harga</h2>
                 <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-                    选择适合您游戏需求的套餐
+                    Pilih paket yang sesuai dengan kebutuhan gaming Anda
                 </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- 免费套餐 -->
+                <!-- Free Plan -->
                 <div class="pricing-card bg-hagoi-dark rounded-xl border border-gray-800 p-8 transition duration-300">
-                    <h3 class="text-xl font-bold mb-2">免费版</h3>
-                    <p class="text-gray-400 mb-6">订阅前试用</p>
-                    <div class="text-4xl font-bold mb-6">¥0<span class="text-lg text-gray-400">/月</span></div>
+                    <h3 class="text-xl font-bold mb-2">Gratis</h3>
+                    <p class="text-gray-400 mb-6">Coba sebelum berlangganan</p>
+                    <div class="text-4xl font-bold mb-6">Rp0<span class="text-lg text-gray-400">/bulan</span></div>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                             </svg>
-                            每天2小时
+                            2 jam/hari
                         </li>
                         <li class="flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                             </svg>
-                            720p分辨率
+                            720p resolution
                         </li>
                         <li class="flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                             </svg>
-                            基础游戏库
+                            Akses ke game dasar
                         </li>
                     </ul>
                     <button class="w-full bg-gray-700 hover:bg-gray-600 text-white py-3 rounded-lg font-medium transition">
-                        立即开始
+                        Mulai Sekarang
                     </button>
                 </div>
                 
-                <!-- 终极套餐 -->
+                <!-- Ultimate Plan -->
                 <div class="pricing-card bg-hagoi-dark rounded-xl border-2 border-hagoi-primary p-8 transition duration-300">
                     <div class="flex justify-between items-start mb-2">
                         <div>
-                            <h3 class="text-xl font-bold">终极版</h3>
-                            <p class="text-gray-400">适合硬核玩家</p>
+                            <h3 class="text-xl font-bold">Ultimate</h3>
+                            <p class="text-gray-400">Untuk gamer sejati</p>
                         </div>
-                        <span class="bg-hagoi-primary text-white text-xs px-3 py-1 rounded-full">最佳选择</span>
+                        <span class="bg-hagoi-primary text-white text-xs px-3 py-1 rounded-full">TERBAIK</span>
                     </div>
-                    <div class="text-4xl font-bold mb-6">¥30<span class="text-lg text-gray-400">/月</span></div>
+                    <div class="text-4xl font-bold mb-6">Rp50.000<span class="text-lg text-gray-400">/bulan</span></div>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                             </svg>
-                            无限游戏时间
+                            Waktu main tak terbatas
                         </li>
                         <li class="flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                             </svg>
-                            1440p分辨率
+                            Resolusi 1440p
                         </li>
                         <li class="flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                             </svg>
-                            所有游戏库
+                            Akses ke semua game
                         </li>
                         <li class="flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                             </svg>
-                            VIP服务器访问
+                            Akses server VIP
                         </li>
                         <li class="flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                             </svg>
-                            新游戏抢先体验
+                            Akses awal ke game baru
                         </li>
                     </ul>
                     <button class="w-full bg-hagoi-primary hover:bg-indigo-700 text-white py-3 rounded-lg font-medium transition">
-                        立即订阅
+                        Berlangganan
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 常见问题区 -->
+    <!-- FAQ Section -->
     <section id="faq" class="container mx-auto px-6 py-20">
         <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">常见问题</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Pertanyaan Umum</h2>
             <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-                关于Hagoi云的常见问题解答
+                Temukan jawaban untuk pertanyaan umum tentang Hagoi Cloud
             </p>
         </div>
         
         <div class="max-w-3xl mx-auto">
             <div class="faq-item py-6">
                 <h3 class="text-xl font-bold mb-3 flex justify-between items-center cursor-pointer">
-                    <span>支持哪些设备？</span>
+                    <span>Perangkat apa yang didukung?</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>
                 </h3>
                 <p class="text-gray-400">
-                    Hagoi云目前支持Android 8.0或更高版本的设备。我们建议使用至少3GB RAM的设备以获得最佳性能。
+                    Hagoi Cloud saat ini mendukung perangkat Android dengan versi 8.0 atau lebih tinggi. Kami merekomendasikan perangkat dengan RAM minimal 3GB untuk performa optimal.
                 </p>
             </div>
             
             <div class="faq-item py-6">
                 <h3 class="text-xl font-bold mb-3 flex justify-between items-center cursor-pointer">
-                    <span>需要使用VPN吗？</span>
+                    <span>Apakah perlu menggunakan VPN?</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>
                 </h3>
                 <p class="text-gray-400">
-                    不需要！Hagoi云可以直接使用，无需VPN。所有游戏都可以直接从印度尼西亚访问，没有任何障碍。
+                    Tidak perlu! Hagoi Cloud bisa langsung digunakan tanpa VPN. Semua game sudah bisa diakses langsung dari Indonesia tanpa kendala.
                 </p>
             </div>
             
             <div class="faq-item py-6">
                 <h3 class="text-xl font-bold mb-3 flex justify-between items-center cursor-pointer">
-                    <span>可以使用手柄吗？</span>
+                    <span>Bisakah menggunakan controller?</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>
                 </h3>
                 <p class="text-gray-400">
-                    可以！Hagoi云支持包括Xbox和PlayStation在内的蓝牙手柄。部分游戏还支持专为移动设备优化的触屏控制。
+                    Bisa! Hagoi Cloud mendukung controller Bluetooth termasuk Xbox dan PlayStation. Beberapa game juga mendukung kontrol layar sentuh yang dioptimalkan untuk mobile.
                 </p>
             </div>
             
             <div class="faq-item py-6">
                 <h3 class="text-xl font-bold mb-3 flex justify-between items-center cursor-pointer">
-                    <span>有免费版本吗？</span>
+                    <span>Apakah ada versi gratis?</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>
                 </h3>
                 <p class="text-gray-400">
-                    我们提供每天2小时限制的免费套餐。无需信用卡即可开始试用。2小时后，您可以订阅终极套餐无限制游戏。
+                    Kami menawarkan paket gratis dengan batasan 2 jam per hari. Tidak perlu kartu kredit untuk mulai mencoba. Setelah 2 jam, Anda bisa berlangganan paket Ultimate untuk main tanpa batas.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- 下载区 -->
+    <!-- Download Section -->
     <section id="download" class="bg-gray-900 py-20">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">准备好开始游戏了吗？</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Siap Bermain?</h2>
             <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
-                立即下载Hagoi云，在您的安卓设备上畅玩高质量游戏
+                Download Hagoi Cloud sekarang dan mainkan game berkualitas tinggi di perangkat Android Anda
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="#" class="flex items-center justify-center bg-hagoi-primary hover:bg-indigo-700 text-white px-8 py-4 rounded-lg font-semibold transition">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                     </svg>
-                    下载安卓版
+                    Download untuk Android
                 </a>
                 <a href="#" class="flex items-center justify-center border-2 border-gray-700 hover:border-gray-600 text-white px-8 py-4 rounded-lg font-semibold transition">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                     </svg>
-                    网页版体验
+                    Buka Versi Web
                 </a>
             </div>
-            <p class="text-gray-500 mt-6 text-sm">需要Android 8.0或更高版本</p>
+            <p class="text-gray-500 mt-6 text-sm">Diperlukan Android 8.0 atau lebih tinggi</p>
         </div>
     </section>
 
-    <!-- 页脚 -->
+    <!-- Footer -->
     <footer class="bg-black py-12">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="flex items-center space-x-2 mb-6 md:mb-0">
                     <img src="gamepad-svgrepo-com (1).png" class="h-10 w-10">
-                    <span class="text-2xl font-bold text-white">Hagoi云</span>
+                    <span class="text-2xl font-bold text-white">Hagoi Cloud</span>
                 </div>
                 <div class="flex flex-wrap justify-center gap-6 md:gap-10 mb-6 md:mb-0">
-                    <a href="#home" class="text-gray-400 hover:text-white transition">首页</a>
-                    <a href="#servers" class="text-gray-400 hover:text-white transition">服务器</a>
-                    <a href="#pricing" class="text-gray-400 hover:text-white transition">价格</a>
-                    <a href="#faq" class="text-gray-400 hover:text-white transition">常见问题</a>
-                    <a href="#download" class="text-gray-400 hover:text-white transition">下载</a>
+                    <a href="#home" class="text-gray-400 hover:text-white transition">Beranda</a>
+                    <a href="#servers" class="text-gray-400 hover:text-white transition">Server Kami</a>
+                    <a href="#pricing" class="text-gray-400 hover:text-white transition">Harga</a>
+                    <a href="#faq" class="text-gray-400 hover:text-white transition">FAQ</a>
+                    <a href="#download" class="text-gray-400 hover:text-white transition">Download</a>
                 </div>
                 <div class="flex space-x-4">
                     <a href="#" class="text-gray-400 hover:text-white transition">
@@ -404,7 +407,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
-                © <script>document.write(new Date().getFullYear())</script> Hagoi云游戏。保留所有权利。
+                © <script>document.write(new Date().getFullYear())</script> Hagoi Cloud Gaming. Semua hak dilindungi.
             </div>
         </div>
     </footer>
@@ -428,10 +431,10 @@
             
             // Add server locations
             const singapore = L.marker([1.3521, 103.8198]).addTo(map)
-                .bindPopup("<b>新加坡服务器</b><br>东南亚地区的高级游戏服务器");
+                .bindPopup("<b>Server Singapore</b><br>Lokasi premium untuk gaming Asia Tenggara");
             
             const palangkaraya = L.marker([-2.2136, 113.9108]).addTo(map)
-                .bindPopup("<b>帕朗卡拉亚服务器</b><br>为印度尼西亚中部和东部优化");
+                .bindPopup("<b>Server Palangkaraya</b><br>Optimasi untuk Indonesia Tengah dan Timur");
             
             // Style the markers
             singapore.setIcon(serverIcon);
