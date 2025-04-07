@@ -8,385 +8,525 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
-    <link rel="icon" type="image/png" href="gamepad-svgrepo-com (1).png">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        poppins: ['Poppins', 'sans-serif'],
-                    },
-                    colors: {
-                        hagoi: {
-                            primary: '#6366f1',
-                            dark: '#1e1e2d',
-                            light: '#f8f9fa',
-                            accent: '#f59e0b',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        .hero-gradient {
-            background: linear-gradient(135deg, #1e1e2d 0%, #6366f1 100%);
-        }
-        .pricing-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .faq-item {
-            border-bottom: 1px solid #2d3748;
-        }
-        #serverMap {
-            height: 400px;
-            width: 100%;
-            border-radius: 12px;
-            z-index: 0;
-        }
-        .server-marker {
-            background-color: #f59e0b;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            display: block;
-            border: 2px solid white;
-        }
-    </style>
+    <link rel="icon" type="image/png" href="image/logo.png">
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="font-poppins bg-hagoi-dark text-hagoi-light">
-    <!-- Navigation -->
-    <nav class="container mx-auto px-6 py-4 sticky top-0 bg-hagoi-dark z-50">
-        <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <img src="gamepad-svgrepo-com (1).png" class="h-10 w-10">
-                <!-- <svg xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                </svg> -->
+
+<body class="font-poppins bg-hagoi-dark text-hagoi-light" id="home">
+   <!-- Navigation -->
+   <nav class="sticky top-0 bg-hagoi-dark z-50 border-b border-gray-800">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <!-- Logo Section -->
+            <div class="flex items-center space-x-2 flex-shrink-0">
+                <img src="image/logo.png" class="h-10 w-10">
                 <span class="text-2xl font-bold text-white">Hagoi Cloud</span>
             </div>
-            <div class="hidden md:flex items-center space-x-10">
-                <a href="#home" class="text-white hover:text-hagoi-accent transition">Beranda</a>
-                <a href="#servers" class="text-white hover:text-hagoi-accent transition">Server Kami</a>
-                <a href="#pricing" class="text-white hover:text-hagoi-accent transition">Harga</a>
-                <a href="#faq" class="text-white hover:text-hagoi-accent transition">FAQ</a>
-                <a href="#download" class="text-white hover:text-hagoi-accent transition">Download</a>
+
+            <!-- Desktop/Tablet Navigation -->
+            <div class="hidden md:flex md:items-center md:space-x-6 lg:space-x-10">
+                <a href="#home" class="px-3 py-2 text-white hover:text-hagoi-accent transition">Home</a>
+                <a href="#pricing" class="px-3 py-2 text-white hover:text-hagoi-accent transition">Pricing</a>
+                <a href="#faq" class="px-3 py-2 text-white hover:text-hagoi-accent transition">FAQ</a>
             </div>
-            <a href="#download" class="bg-hagoi-primary hover:bg-indigo-700 text-white px-6 py-2 rounded-full font-medium transition">
+            
+
+            <a href="#download" class="block px-3 py-2 bg-hagoi-primary hidden md:flex whitespace-nowrap  hover:bg-indigo-700 text-white rounded-lg text-base font-medium flex items-center justify-center transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Download
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div class="mobile-menu hidden md:hidden bg-gray-800">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="#home" class="block px-3 py-2 text-white rounded-md text-base font-medium">Home</a>
+            <a href="#pricing" class="block px-3 py-2 text-white rounded-md text-base font-medium">Pricing</a>
+            <a href="#faq" class="block px-3 py-2 text-white rounded-md text-base font-medium">FAQ</a>
+            <a href="#download" class="block px-3 py-2 bg-hagoi-primary text-white rounded-md text-base font-medium flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
                 Download
             </a>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-gradient">
-        <div class="container mx-auto px-6 py-20 md:py-32">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
-                        Cloud Gaming <span class="text-hagoi-accent">untuk Android</span>
-                    </h1>
-                    <p class="text-xl text-gray-300 mb-8">
-                        Mainkan game high-end di perangkat Android apa pun. Tanpa download, langsung main!
-                    </p>
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#download" class="bg-hagoi-accent hover:bg-amber-600 text-white px-8 py-3 rounded-full font-semibold text-center transition">
-                            Download Sekarang
-                        </a>
-                        <a href="#pricing" class="border-2 border-white hover:bg-white hover:text-hagoi-dark text-white px-8 py-3 rounded-full font-semibold text-center transition">
-                            Lihat Harga
-                        </a>
+<!-- Hero Section -->
+<section  class="hero-gradient">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32">
+        <div class="flex flex-col lg:flex-row items-center">
+            <!-- Text Content -->
+            <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12 xl:pr-16">
+                <div class="flex items-center mb-4">
+                    <span class="origin-badge bg-hagoi-accent text-xs text-white px-3 py-1 rounded-full">Free Trial Available</span>
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
+                    Cloud Gaming <span class="text-hagoi-accent">for Android</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-300 mb-8 max-w-lg">
+                    Enjoy high-end gaming on any Android device no downloads needed, just instant play through our powerful cloud servers.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#download" class="bg-hagoi-accent hover:bg-amber-600 text-white px-6 sm:px-8 py-3 rounded-full font-semibold text-center transition flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        Download Now
+                    </a>
+                    <a href="#pricing" class="border-2 border-white hover:bg-white hover:text-hagoi-dark text-white px-6 sm:px-8 py-3 rounded-full font-semibold text-center transition flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        View Pricing
+                    </a>
+                </div>
+            </div>
+            
+
+            <!-- Image Content -->
+            <div class="lg:w-1/2 flex justify-center relative">
+                <img src="image/gtav.png" alt="Hagoi Cloud Gaming" 
+                     class="w-full max-w-md lg:max-w-lg xl:max-w-xl transform hover:scale-105 transition duration-300">
+                <div class="absolute -bottom-4 -right-4 sm:-bottom-5 sm:-right-5 bg-hagoi-primary text-white px-3 sm:px-4 py-1 sm:py-2 rounded-lg shadow-lg">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 sm:h-5 w-4 sm:w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        <span class="text-sm sm:text-base">Low Latency</span>
                     </div>
                 </div>
-                <div class="md:w-1/2 flex justify-center">
-                    <img src="pngimg.com - gta_PNG42.png" alt="Hagoi Cloud Gaming">
-                </div>
             </div>
         </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="container mx-auto px-6 py-20">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Keunggulan Hagoi Cloud</h2>
-            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-                Pengalaman cloud gaming terbaik untuk perangkat Android
-            </p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-gray-800 p-8 rounded-xl">
-                <div class="bg-hagoi-primary bg-opacity-20 w-16 h-16 flex items-center justify-center rounded-full mb-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-hagoi-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Main Instan</h3>
-                <p class="text-gray-400">Mulai main dalam hitungan detik tanpa perlu download atau instal.</p>
-            </div>
-            
-            <div class="bg-gray-800 p-8 rounded-xl">
-                <div class="bg-hagoi-primary bg-opacity-20 w-16 h-16 flex items-center justify-center rounded-full mb-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-hagoi-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Kinerja Tinggi</h3>
-                <p class="text-gray-400">Didukung server cloud untuk gameplay mulus di semua perangkat Android.</p>
-            </div>
-            
-            <div class="bg-gray-800 p-8 rounded-xl">
-                <div class="bg-hagoi-primary bg-opacity-20 w-16 h-16 flex items-center justify-center rounded-full mb-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-hagoi-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Save Game</h3>
-                <p class="text-gray-400">Progress game Anda selalu aman dan tersimpan di cloud.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Server Locations Section -->
-<section id="servers" class="container mx-auto px-6 py-20">
-    <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Jaringan Server Global</h2>
+    </div>
+</section>
+<!-- Features Section -->
+<section class="container mx-auto px-6 py-20">
+    <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Hagoi Cloud Advantages</h2>
         <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-            Server berkinerja tinggi di lokasi strategis untuk pengalaman gaming tanpa lag
+            The best cloud gaming experience for Android devices
         </p>
     </div>
     
-    <div class="bg-gray-800 rounded-xl p-6">
-        <div id="serverMap"></div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-            <div class="bg-gray-700 p-6 rounded-lg hover:bg-gray-600 transition duration-300">
-                <div class="flex items-center mb-4">
-                    <div class="relative mr-3">
-                        <span class="server-marker"></span>
-                        <span class="absolute -top-1 -right-1 flex h-3 w-3">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                        </span>
-                    </div>
-                    <h3 class="text-xl font-bold">Singapore</h3>
-                </div>
-                <p class="text-gray-300">
-                    Server premium di Singapura dengan koneksi 10Gbps, memberikan latensi rendah untuk seluruh Asia Tenggara. Didukung oleh prosesor terbaru dan GPU khusus gaming.
-                </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-800 p-8 rounded-xl">
+            <div class="bg-hagoi-primary bg-opacity-20 w-16 h-16 flex items-center justify-center rounded-full mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-hagoi-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
             </div>
-            <div class="bg-gray-700 p-6 rounded-lg hover:bg-gray-600 transition duration-300">
-                <div class="flex items-center mb-4">
-                    <div class="relative mr-3">
-                        <span class="server-marker"></span>
-                        <span class="absolute -top-1 -right-1 flex h-3 w-3">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                        </span>
+            <h3 class="text-xl font-bold mb-3">Instant Play</h3>
+            <p class="text-gray-400">Start playing in seconds — no downloads or installations required.</p>
+        </div>
+        
+        <div class="bg-gray-800 p-8 rounded-xl">
+            <div class="bg-hagoi-primary bg-opacity-20 w-16 h-16 flex items-center justify-center rounded-full mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-hagoi-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">High Performance</h3>
+            <p class="text-gray-400">Powered by cloud infrastructure for smooth gameplay on all Android devices.</p>
+        </div>
+        
+        <div class="bg-gray-800 p-8 rounded-xl">
+            <div class="bg-hagoi-primary bg-opacity-20 w-16 h-16 flex items-center justify-center rounded-full mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-hagoi-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Save Game</h3>
+            <p class="text-gray-400">Your game progress is always safe and stored securely in the cloud.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- Popular Games Section -->
+<section class="py-20 bg-gradient-to-b from-hagoi-dark to-gray-900">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-hagoi-primary to-hagoi-accent">
+                Popular Games
+            </h2>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                Explore a collection of premium games available on our platform
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Game 1 -->
+            <div class="group relative overflow-hidden rounded-2xl bg-gray-800 border border-gray-700 hover:border-hagoi-primary transition-all duration-500">
+                <div class="aspect-w-16 aspect-h-9 overflow-hidden">
+                    <img src="https://cdn1-production-images-kly.akamaized.net/5bDDAat0xnQptWFg64TXfmFx01g=/1200x675/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/21966/original/gta-v-130923c.jpg" 
+                         alt="GTA V" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="flex mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <span class="ml-1 text-gray-300">4.8</span>
+                                </div>
+                                <span class="text-xs bg-hagoi-primary/20 text-hagoi-primary px-2 py-1 rounded">Action</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">GTA V</h3>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold">Palangkaraya</h3>
                 </div>
-                <p class="text-gray-300">
-                    Server lokal di Kalimantan untuk pengguna di Indonesia bagian tengah dan timur. Optimalkan untuk mengurangi latensi dengan teknologi streaming game terbaru.
-                </p>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg font-semibold text-white">GTA V</h3>
+                        <span class="text-xs bg-hagoi-primary/10 text-hagoi-primary px-2 py-1 rounded-full">Trending</span>
+                    </div>
+                    <div class="mt-2 flex items-center text-gray-400 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        80+ hours of gameplay
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game 2 -->
+            <div class="group relative overflow-hidden rounded-2xl bg-gray-800 border border-gray-700 hover:border-hagoi-primary transition-all duration-500">
+                <div class="aspect-w-16 aspect-h-9 overflow-hidden">
+                    <img src="https://image.api.playstation.com/vulcan/ap/rnd/202311/2812/ae84720b553c4ce943e9c342621b60f198beda0dbf533e21.jpg" 
+                         alt="Cyberpunk 2077" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="flex mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <span class="ml-1 text-gray-300">4.5</span>
+                                </div>
+                                <span class="text-xs bg-purple-500/20 text-purple-400 px-2 py-1 rounded">RPG</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Cyberpunk 2077</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg font-semibold text-white">Cyberpunk 2077</h3>
+                        <span class="text-xs bg-hagoi-accent/10 text-hagoi-accent px-2 py-1 rounded-full">New</span>
+                    </div>
+                    <div class="mt-2 flex items-center text-gray-400 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        60+ hours of gameplay
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Game 3 -->
+            <div class="group relative overflow-hidden rounded-2xl bg-gray-800 border border-gray-700 hover:border-hagoi-primary transition-all duration-500">
+                <div class="aspect-w-16 aspect-h-9 overflow-hidden">
+                    <img src="https://m.media-amazon.com/images/I/71xeX+uUF1L.jpg" 
+                         alt="Red Dead Redemption 2" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="flex mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <span class="ml-1 text-gray-300">4.9</span>
+                                </div>
+                                <span class="text-xs bg-amber-500/20 text-amber-400 px-2 py-1 rounded">Adventure</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Red Dead Redemption 2</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg font-semibold text-white">RDR 2</h3>
+                        <span class="text-xs bg-green-500/10 text-green-400 px-2 py-1 rounded-full">Open World</span>
+                    </div>
+                    <div class="mt-2 flex items-center text-gray-400 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        100+ hours of gameplay
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Game 4 -->
+            <div class="group relative overflow-hidden rounded-2xl bg-gray-800 border border-gray-700 hover:border-hagoi-primary transition-all duration-500">
+                <div class="aspect-w-16 aspect-h-9 overflow-hidden">
+                    <img src="https://cdn1.epicgames.com/offer/14ee004dadc142faaaece5a6270fb628/EGS_TheWitcher3WildHuntCompleteEdition_CDPROJEKTRED_S1_2560x1440-82eb5cf8f725e329d3194920c0c0b64f" 
+                         alt="The Witcher 3" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="flex mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <span class="ml-1 text-gray-300">4.7</span>
+                                </div>
+                                <span class="text-xs bg-red-500/20 text-red-400 px-2 py-1 rounded">Action RPG</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">The Witcher 3</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg font-semibold text-white">The Witcher 3</h3>
+                        <span class="text-xs bg-blue-500/10 text-blue-400 px-2 py-1 rounded-full">GOTY Edition</span>
+                    </div>
+                    <div class="mt-2 flex items-center text-gray-400 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        120+ hours of gameplay
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+   <!-- Pricing Section -->
+<section id="pricing" class="bg-gray-900 py-20">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Pricing Plans</h2>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                Choose the plan that fits your gaming needs
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <!-- Free Trial Plan -->
+            <div class="pricing-card bg-hagoi-dark rounded-xl border border-gray-800 p-8 transition duration-300">
+                <h3 class="text-xl font-bold mb-2">Free Trial</h3>
+                <p class="text-gray-400 mb-6">Try before you subscribe</p>
+                <div class="text-4xl font-bold mb-6">Rp0<span class="text-lg text-gray-400">/month</span></div>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        2 hours/day
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        720p @ 30fps
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        Access to base games only
+                    </li>
+                    <li class="flex items-center text-red-500">
+                        <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 8.586L4.707 3.293a1 1 0 00-1.414 1.414L8.586 10l-5.293 5.293a1 1 0 001.414 1.414L10 11.414l5.293 5.293a1 1 0 001.414-1.414L11.414 10l5.293-5.293a1 1 0 00-1.414-1.414L10 8.586z" clip-rule="evenodd" />
+                        </svg>
+                        Save game support
+                    </li>
+                </ul>
+                <button class="w-full bg-gray-700 hover:bg-gray-600 text-white py-3 rounded-lg font-medium transition">
+                    Start Now
+                </button>
+            </div>
+
+            <!-- Ultimate Plan -->
+            <div class="pricing-card bg-hagoi-dark rounded-xl border-2 border-hagoi-primary p-8 transition duration-300">
+                <div class="flex justify-between items-start mb-2">
+                    <div>
+                        <h3 class="text-xl font-bold">Ultimate</h3>
+                        <p class="text-gray-400">For serious gamers</p>
+                    </div>
+                    <span class="bg-hagoi-primary text-white text-xs px-3 py-1 rounded-full">BEST VALUE</span>
+                </div>
+                <div class="text-4xl font-bold mb-6">Rp100.000<span class="text-lg text-gray-400">/month</span></div>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        Unlimited playtime
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        1080p @ 60fps
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        Access to all games
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        VIP server access
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        Early access to new titles
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        Save game support
+                    </li>
+                </ul>
+                <button class="w-full bg-hagoi-primary hover:bg-indigo-700 text-white py-3 rounded-lg font-medium transition">
+                    Subscribe
+                </button>
             </div>
         </div>
     </div>
 </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="bg-gray-900 py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Paket Harga</h2>
-                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-                    Pilih paket yang sesuai dengan kebutuhan gaming Anda
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- Free Plan -->
-                <div class="pricing-card bg-hagoi-dark rounded-xl border border-gray-800 p-8 transition duration-300">
-                    <h3 class="text-xl font-bold mb-2">Gratis</h3>
-                    <p class="text-gray-400 mb-6">Coba sebelum berlangganan</p>
-                    <div class="text-4xl font-bold mb-6">Rp0<span class="text-lg text-gray-400">/bulan</span></div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                            </svg>
-                            2 jam/hari
-                        </li>
-                        <li class="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                            </svg>
-                            720p resolution
-                        </li>
-                        <li class="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                            </svg>
-                            Akses ke game dasar
-                        </li>
-                    </ul>
-                    <button class="w-full bg-gray-700 hover:bg-gray-600 text-white py-3 rounded-lg font-medium transition">
-                        Mulai Sekarang
-                    </button>
-                </div>
-                
-                <!-- Ultimate Plan -->
-                <div class="pricing-card bg-hagoi-dark rounded-xl border-2 border-hagoi-primary p-8 transition duration-300">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="text-xl font-bold">Ultimate</h3>
-                            <p class="text-gray-400">Untuk gamer sejati</p>
-                        </div>
-                        <span class="bg-hagoi-primary text-white text-xs px-3 py-1 rounded-full">TERBAIK</span>
-                    </div>
-                    <div class="text-4xl font-bold mb-6">Rp50.000<span class="text-lg text-gray-400">/bulan</span></div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                            </svg>
-                            Waktu main tak terbatas
-                        </li>
-                        <li class="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                            </svg>
-                            Resolusi 1440p
-                        </li>
-                        <li class="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                            </svg>
-                            Akses ke semua game
-                        </li>
-                        <li class="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                            </svg>
-                            Akses server VIP
-                        </li>
-                        <li class="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                            </svg>
-                            Akses awal ke game baru
-                        </li>
-                    </ul>
-                    <button class="w-full bg-hagoi-primary hover:bg-indigo-700 text-white py-3 rounded-lg font-medium transition">
-                        Berlangganan
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="container mx-auto px-6 py-20">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Pertanyaan Umum</h2>
-            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-                Temukan jawaban untuk pertanyaan umum tentang Hagoi Cloud
+   <!-- FAQ Section -->
+<section id="faq" class="container mx-auto px-6 py-20">
+    <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+            Find answers to common questions about Hagoi Cloud
+        </p>
+    </div>
+    
+    <div class="max-w-3xl mx-auto">
+        <div class="faq-item py-6">
+            <h3 class="text-xl font-bold mb-3 flex justify-between items-center cursor-pointer">
+                <span>What devices are supported?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </h3>
+            <p class="text-gray-400">
+                Hagoi Cloud currently supports Android devices running version 8.0 or higher. We recommend devices with at least 3GB of RAM for optimal performance.
             </p>
         </div>
-        
-        <div class="max-w-3xl mx-auto">
-            <div class="faq-item py-6">
-                <h3 class="text-xl font-bold mb-3 flex justify-between items-center cursor-pointer">
-                    <span>Perangkat apa yang didukung?</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
-                </h3>
-                <p class="text-gray-400">
-                    Hagoi Cloud saat ini mendukung perangkat Android dengan versi 8.0 atau lebih tinggi. Kami merekomendasikan perangkat dengan RAM minimal 3GB untuk performa optimal.
-                </p>
-            </div>
-            
-            <div class="faq-item py-6">
-                <h3 class="text-xl font-bold mb-3 flex justify-between items-center cursor-pointer">
-                    <span>Apakah perlu menggunakan VPN?</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
-                </h3>
-                <p class="text-gray-400">
-                    Tidak perlu! Hagoi Cloud bisa langsung digunakan tanpa VPN. Semua game sudah bisa diakses langsung dari Indonesia tanpa kendala.
-                </p>
-            </div>
-            
-            <div class="faq-item py-6">
-                <h3 class="text-xl font-bold mb-3 flex justify-between items-center cursor-pointer">
-                    <span>Bisakah menggunakan controller?</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
-                </h3>
-                <p class="text-gray-400">
-                    Bisa! Hagoi Cloud mendukung controller Bluetooth termasuk Xbox dan PlayStation. Beberapa game juga mendukung kontrol layar sentuh yang dioptimalkan untuk mobile.
-                </p>
-            </div>
-            
-            <div class="faq-item py-6">
-                <h3 class="text-xl font-bold mb-3 flex justify-between items-center cursor-pointer">
-                    <span>Apakah ada versi gratis?</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
-                </h3>
-                <p class="text-gray-400">
-                    Kami menawarkan paket gratis dengan batasan 2 jam per hari. Tidak perlu kartu kredit untuk mulai mencoba. Setelah 2 jam, Anda bisa berlangganan paket Ultimate untuk main tanpa batas.
-                </p>
-            </div>
+
+        <div class="faq-item py-6">
+            <h3 class="text-xl font-bold mb-3 flex justify-between items-center cursor-pointer">
+                <span>Do I need to use a VPN?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </h3>
+            <p class="text-gray-400">
+                No VPN needed! Hagoi Cloud is ready to use without any additional setup. All games are fully accessible from Indonesia.
+            </p>
         </div>
-    </section>
+
+        <div class="faq-item py-6">
+            <h3 class="text-xl font-bold mb-3 flex justify-between items-center cursor-pointer">
+                <span>Can I use a controller?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </h3>
+            <p class="text-gray-400">
+                Yes! Hagoi Cloud supports Bluetooth controllers, including Xbox and PlayStation. Some games also support optimized touch controls for mobile.
+            </p>
+        </div>
+
+        <div class="faq-item py-6">
+            <h3 class="text-xl font-bold mb-3 flex justify-between items-center cursor-pointer">
+                <span>Is there a free version?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </h3>
+            <p class="text-gray-400">
+                We offer a free trial plan with a limit of 2 hours per day. No credit card required to get started. After 2 hours, you can upgrade to the Ultimate plan for unlimited playtime.
+            </p>
+        </div>
+
+        <div class="faq-item py-6">
+            <h3 class="text-xl font-bold mb-3 flex justify-between items-center cursor-pointer">
+                <span>What internet speed is required?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </h3>
+            <p class="text-gray-400">
+                We recommend a minimum internet speed of 20 Mbps on a 5GHz Wi-Fi network for a smooth and stable cloud gaming experience.
+            </p>
+        </div>
+    </div>
+</section>
+
 
     <!-- Download Section -->
-    <section id="download" class="bg-gray-900 py-20">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Siap Bermain?</h2>
-            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
-                Download Hagoi Cloud sekarang dan mainkan game berkualitas tinggi di perangkat Android Anda
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#" class="flex items-center justify-center bg-hagoi-primary hover:bg-indigo-700 text-white px-8 py-4 rounded-lg font-semibold transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                    Download untuk Android
-                </a>
-                <a href="#" class="flex items-center justify-center border-2 border-gray-700 hover:border-gray-600 text-white px-8 py-4 rounded-lg font-semibold transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                    </svg>
-                    Buka Versi Web
-                </a>
-            </div>
-            <p class="text-gray-500 mt-6 text-sm">Diperlukan Android 8.0 atau lebih tinggi</p>
+<section id="download" class="bg-gray-900 py-20">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Play?</h2>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+            Download Hagoi Cloud now and enjoy high-quality gaming on your Android device.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="#" class="flex items-center justify-center bg-hagoi-primary hover:bg-indigo-700 text-white px-8 py-4 rounded-lg font-semibold transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Download for Android
+            </a>
+            <!-- <a href="#" class="flex items-center justify-center border-2 border-gray-700 hover:border-gray-600 text-white px-8 py-4 rounded-lg font-semibold transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                </svg>
+                Open Web Version
+            </a> -->
         </div>
-    </section>
+        <p class="text-gray-500 mt-6 text-sm">Requires Android 8.0 or above</p>
+    </div>
+</section>
+
 
     <!-- Footer -->
     <footer class="bg-black py-12">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="flex items-center space-x-2 mb-6 md:mb-0">
-                    <img src="gamepad-svgrepo-com (1).png" class="h-10 w-10">
+                    <img src="image/logo.png" class="h-10 w-10">
                     <span class="text-2xl font-bold text-white">Hagoi Cloud</span>
                 </div>
                 <div class="flex flex-wrap justify-center gap-6 md:gap-10 mb-6 md:mb-0">
-                    <a href="#home" class="text-gray-400 hover:text-white transition">Beranda</a>
-                    <a href="#servers" class="text-gray-400 hover:text-white transition">Server Kami</a>
-                    <a href="#pricing" class="text-gray-400 hover:text-white transition">Harga</a>
+                    <a href="#home" class="text-gray-400 hover:text-white transition">Home</a>
+                    <a href="#pricing" class="text-gray-400 hover:text-white transition">Pricing</a>
                     <a href="#faq" class="text-gray-400 hover:text-white transition">FAQ</a>
-                    <a href="#download" class="text-gray-400 hover:text-white transition">Download</a>
                 </div>
                 <div class="flex space-x-4">
                     <a href="#" class="text-gray-400 hover:text-white transition">
@@ -407,39 +547,10 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
-                © <script>document.write(new Date().getFullYear())</script> Hagoi Cloud Gaming. Semua hak dilindungi.
+                © <script>document.write(new Date().getFullYear())</script> Hagoi Cloud Gaming. All rights reserved.
             </div>
+            <script src="js/navbar.js"></script>
         </div>
     </footer>
-
-    <script>
-        // Initialize map after the DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Coordinates for Southeast Asia center
-            const map = L.map('serverMap').setView([1.3521, 110.0], 5);
-            
-            // Add tile layer (using OpenStreetMap)
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-    
-            // Custom icon for server locations
-            const serverIcon = L.divIcon({
-                className: 'server-marker',
-                iconSize: [16, 16]
-            });
-            
-            // Add server locations
-            const singapore = L.marker([1.3521, 103.8198]).addTo(map)
-                .bindPopup("<b>Server Singapore</b><br>Lokasi premium untuk gaming Asia Tenggara");
-            
-            const palangkaraya = L.marker([-2.2136, 113.9108]).addTo(map)
-                .bindPopup("<b>Server Palangkaraya</b><br>Optimasi untuk Indonesia Tengah dan Timur");
-            
-            // Style the markers
-            singapore.setIcon(serverIcon);
-            palangkaraya.setIcon(serverIcon);
-        });
-    </script>
 </body>
 </html>
