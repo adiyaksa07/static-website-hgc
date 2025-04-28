@@ -16,4 +16,4 @@ tailwind.config = {
     }
 }
 
-// defaul #f59e0b
+// default #f59e0b
